@@ -62,7 +62,7 @@ streamlit run app.py
 ## 📸 Screenshot
 
 <p align="center">
-  <img src="screenshot.png" width="700">
+  <img src="screenshot 1.jpg" width="700">
 </p>
 ---
 

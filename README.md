@@ -61,11 +61,9 @@ streamlit run app.py
 
 ## 📸 Screenshot
 
-(Add your screenshot here)
-
-Example:
-![App Screenshot](screenshot.png)
-
+<p align="center">
+  <img src="screenshot.png" width="700">
+</p>
 ---
 
 ## 👨‍💻 Author

@@ -1,6 +1,7 @@
 streamlit
-langchain
-langchain-community
-langchain-huggingface
+langchain==0.2.1
+langchain-community==0.2.1
+langchain-huggingface==0.0.3
 chromadb
 transformers
+sentence-transformers

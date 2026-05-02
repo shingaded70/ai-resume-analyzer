@@ -64,6 +64,13 @@ streamlit run app.py
 <p align="center">
   <img src="screenshot 1.jpg" width="700">
 </p>
+<p align="center">
+  <img src="screenshot 2.jpg" width="700">
+</p>
+<p align="center">
+  <img src="screenshot 3.jpg" width="700">
+</p>
+
 ---
 
 ## 👨‍💻 Author

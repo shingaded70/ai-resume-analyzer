@@ -54,7 +54,7 @@ if uploaded_file:
         st.success(f"Matched Keywords: {', '.join(matched) if matched else 'None'}")
 
     # --- MODEL (BETTER OUTPUT) ---
-    pipe = pipeline("text2text-generation", model="google/flan-t5-small")
+    pipe = pipeline("text-generation", model="sshleifer/tiny-gpt2")
 
     # --- SIMPLE RETRIEVAL (RAG) ---
     context = chunks[0]

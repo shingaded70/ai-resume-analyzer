@@ -1,32 +1,36 @@
 import streamlit as st
-from langchain_core.documents import Document
-from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_huggingface import HuggingFaceEmbeddings
-from langchain_community.vectorstores import Chroma
 from transformers import pipeline
-from langchain_community.llms import HuggingFacePipeline
 
 st.title("📄 AI Resume Analyzer")
+st.write("Upload your resume and get ATS score + suggestions")
 
 uploaded_file = st.file_uploader("Upload Resume", type=["txt"])
 
 if uploaded_file:
     text = uploaded_file.read().decode("utf-8")
 
-    docs = [Document(page_content=text)]
+    # Simple ATS scoring
+    keywords = ["python", "ai", "machine learning", "data", "analysis"]
+    score = sum(1 for word in keywords if word in text.lower()) * 20
 
-    splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
-    splits = splitter.split_documents(docs)
+    st.subheader(f"📊 ATS Score: {score}/100")
 
-    embeddings = HuggingFaceEmbeddings()
-    vectordb = Chroma.from_documents(splits, embeddings)
-
+    # Load small fast model
     pipe = pipeline("text-generation", model="sshleifer/tiny-gpt2")
-    llm = HuggingFacePipeline(pipeline=pipe)
 
-    score = 80  # simple ATS score
+    prompt = f"""
+    You are a resume expert.
 
-    st.write("ATS Score:", score)
+    Analyze this resume and give:
+    1. Strengths
+    2. Weaknesses
+    3. Improvements
 
-    response = llm(f"Review this resume: {text}")
-    st.write(response)
+    Resume:
+    {text}
+    """
+
+    result = pipe(prompt, max_new_tokens=150)[0]["generated_text"]
+
+    st.subheader("📌 Suggestions")
+    st.write(result)

@@ -6,7 +6,7 @@ Built with LangChain + HuggingFace + Streamlit
 
 ## 🚀 Demo
 
-🔗 Live App: https://your-streamlit-link.streamlit.app
+🔗 Live App: https://ai-resume-analyzer-wjgjrjcjy2unqp4zpasbiw.streamlit.app/
 
 ---
 
